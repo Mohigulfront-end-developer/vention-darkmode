@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Aboutus = () => {
   return (
     <div className="bg-[#EBEBED]">

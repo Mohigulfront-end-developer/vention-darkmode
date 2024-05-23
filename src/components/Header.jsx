@@ -1,14 +1,12 @@
 import { TfiWorld } from "react-icons/tfi";
+import logo from "../assets/sitelogo.svg";
 
 const Header = () => {
   return (
     <div className="w-full bg-[#EBEBED] border-b-2 border-gray-300">
       <header className="container mx-auto px-4 ">
         <div className="flex justify-between items-center">
-          <img
-            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTM2IiBo…oaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg=="
-            alt="vention logo"
-          />
+          <img src={logo} alt="vention logosss" />
           <ul className="flex justify-between items-center gap-20 ">
             <li className="px-3 py-5 border-l-2 border-gray-300">
               <a
@@ -55,6 +53,6 @@ const Header = () => {
       </header>
     </div>
   );
-}
+};
 
-export default Header
+export default Header;

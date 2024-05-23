@@ -13,12 +13,31 @@ import Partnership from './components/Parternship';
 import WeSpeak from './components/WeSpeak';
 import ButtonFull from './components/ButtonFull';
 import Recognize from './components/Recognize';
+import RegisterForm from './components/RegisterForm';
+// import { ThemeProvider } from './components/context/theme';
+// import { ThemeBtn } from "./components/ThemesBtn";
+// import { useEffect, useState } from 'react';
 
 function App() {
+  // const [themeMode, setThemeMode] = useState('light')
+
+  // const darkTheme = () => {
+  //   setThemeMode ('dark')
+  // }
+
+  // const lightTheme = () => {
+  //   setThemeMode('light')
+  // }
+
+  // useEffect(() => {
+  //   document.querySelector("html").classList.remove('dark', "light")
+  //   document.querySelector('html').classList.add(themeMode)
+  // }, [themeMode])
 
 
   return (
-    <>
+  
+     < >
       <Header />
       <HeroSec />
       <Aboutus />
@@ -29,9 +48,11 @@ function App() {
       <Workers />
       <Partnership />
       <BrandsMarque />
-      <ButtonFull/>
-      <Recognize/>
+      <ButtonFull />
+      <Recognize />
+      <RegisterForm />
       <Footer />
+      {/* <ThemeBtn /> */}
     </>
   );
 }
