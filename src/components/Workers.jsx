@@ -2,10 +2,14 @@ import React from "react";
 import Img from "./../../public/assets/Ravi_Srikantan.webp";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import { FiArrowRightCircle } from "react-icons/fi";
+import { ModeContext } from "./context/ModeContext";
+import { modeTypes } from "../types/modeTypes";
 
 const Workers = () => {
+  const { mode } = React.useContext(ModeContext);
+  const theme = mode === modeTypes.DARK_MODE ? true : false;
   return (
-    <div className="bg-[#EBEBED]">
+    <div className={` ${theme ? "bg-[#29292b] text-white " : "bg-[#EBEBED]"} `}>
       <div className="container mx-auto px-4">
         <div className="bg-[#FF6FFF] flex items-center gap-20 ml-[88px] px-[45px] pt-[135px] ">
           <div className="left">

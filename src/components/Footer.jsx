@@ -1,19 +1,27 @@
 import { FaArrowRightLong } from "react-icons/fa6";
-import { MdOutlineDarkMode } from "react-icons/md";
-import { MdOutlineLightMode } from "react-icons/md";
-import footer1 from "../../public/assets/footer1.svg"
+// import { MdOutlineDarkMode } from "react-icons/md";
+// import { MdOutlineLightMode } from "react-icons/md";
+import footer1 from "../../public/assets/footer1.svg";
 // import footer2 from "../../public/assets/footer2.webp";
-// import ThemesBtn from "./ThemesBtn";
-
+import { ModeContext } from "./context/ModeContext";
+import { modeTypes } from "../types/modeTypes";
+import React from "react";
+import Toggle from "./Toggle";
 
 const Footer = () => {
+  const { mode, toggleMode } = React.useContext(ModeContext);
+  const theme = mode === modeTypes.DARK_MODE ? true : false;
   return (
     <div>
-      <footer className="bg-stone-800 text-white  ">
-        <div className="container mx-auto px-4 ">
+      <footer
+        className={` ${
+          theme ? "bg-gray-300 text-black " : "bg-[#29292b] text-white"
+        } `}
+      >
+        <div className="container mx-auto px-4  ">
           <div className="flex justify-between items-center border-b-2 border-l-2 border-gray-400 ml-[88px] px-[20px] ">
             <div className="border-r-2 border-gray-400 pr-[250px]">
-              <h4 className="pt-[50px] w-[500px] pb-[20px] font-semibold text-[25px] text-white">
+              <h4 className="pt-[50px] w-[500px] pb-[20px] font-semibold text-[25px] ">
                 Subscribe to our newsletter for industry insights and company
                 news!
               </h4>
@@ -36,7 +44,14 @@ const Footer = () => {
                     value="term"
                     className=""
                   />
-                  <label htmlFor="" className="text-gray-400 text-[13px]">
+                  <label
+                    htmlFor=""
+                    className={`0 text-[13px] ${
+                      theme
+                        ? "bg-gray-300 text-black "
+                        : "bg-[#29292b] text-gray-40"
+                    } `}
+                  >
                     {" "}
                     I agree to the{" "}
                     <a
@@ -50,24 +65,19 @@ const Footer = () => {
                   </label>
                 </div>
                 <div className="flex gap-[10px] items-center mb-[80px]">
-                  <div className="w-[80px] h-[45px] btn border border-zinc-500 rounded-full flex items-center gap-[5px] p-[5px]">
-                    <button>
-                      <MdOutlineDarkMode className="dark w-[33px] h-[35px] rounded-full hover:bg-orange-600 p-[5px] " />
-                    </button>
-                    <button>
-                      {" "}
-                      <MdOutlineLightMode className="light w-[33px] h-[35px] p-[5px] rounded-full hover:bg-orange-600" />
-                    </button>
+                  <div className="w-[80px] h-[45px] btn flex items-center gap-[5px] p-[5px]">
+                    <Toggle />
                   </div>
                   <p className="text-[25px] text-gray-200">Light mode</p>
                 </div>
-                {/* <ThemesBtn/> */}
               </form>
             </div>
             <div className="flex justify-between mb-6 gap-[50px]">
               <div className="">
                 <div className="space-y-3 pl-[20px] pt-[50px]">
-                  <h4 className="font-semibold text-lg text-orange-600">About</h4>
+                  <h4 className="font-semibold text-lg text-orange-600">
+                    About
+                  </h4>
                   <a
                     href="/company"
                     className="block hover:text-orange-600 transition duration-300"

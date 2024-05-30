@@ -1,8 +1,13 @@
 import React from 'react'
+import { ModeContext } from "./context/ModeContext";
+import { modeTypes } from "../types/modeTypes";
 
 const KeyStatus = () => {
+  const { mode } = React.useContext(ModeContext);
+  const theme = mode === modeTypes.DARK_MODE ? true : false;
+  
   return (
-    <div className="bg-[#EBEBED]">
+    <div className={` ${theme ? "bg-[#29292b] text-white " : "bg-[#EBEBED]"} `}>
       <div className="container mx-auto px-4 flex justify-between items-center ">
         <div className="ml-[88px] py-10 px-5 grid grid-cols-4 gap-x-20 gap-y-10  items-center border-l-2 border-gray-300 border-b-2">
           <div className="p-[15px] grid col-span-2">

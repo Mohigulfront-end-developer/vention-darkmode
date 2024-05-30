@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { CgArrowTopRight } from "react-icons/cg";
 import img1 from "./../../public/assets/image.webp";
+import { ModeContext } from "./context/ModeContext";
+import { modeTypes } from "../types/modeTypes";
 
 const HeroSec = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { mode } = React.useContext(ModeContext);
+  const theme = mode === modeTypes.DARK_MODE ? true : false;
 
   const headings = [
     { title: "Engineering peace of mind", color: "#FF6A47" },
@@ -21,7 +25,7 @@ const HeroSec = () => {
   }, []);
 
   return (
-    <div className="common bg-[#EBEBED] border-b-2 border-b-gray-300 py-14">
+    <div className={`common py-14 border-b-2 border-gray-300 ${theme ? "bg-[#29292b] text-white " : "bg-[#EBEBED]"} `}>
       <div className="top container mx-auto px-4 ">
         <div className="top flex items-center gap-28 ">
           <h1

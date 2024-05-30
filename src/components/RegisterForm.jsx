@@ -1,6 +1,13 @@
+import { ModeContext } from "./context/ModeContext";
+import { modeTypes } from "../types/modeTypes";
+import React from "react";
+
 const RegisterForm = () => {
+  const { mode } = React.useContext(ModeContext);
+  const theme = mode === modeTypes.DARK_MODE ? true : false;
+
   return (
-    <div className="bg-[#ebebed]">
+    <div className={` ${theme ? "bg-[#29292b] text-white " : "bg-[#EBEBED]"} `}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="w-[80vw] ml-[88px] border-l-2 border-r-2 border-gray-300 pt-20">
           <form action="">
@@ -40,7 +47,10 @@ const RegisterForm = () => {
 
                 <label htmlFor="" className="text-[14px] pl-[8px] ">
                   I agree to the{" "}
-                  <a href="https://ventionteams.com/privacy-policy" className="underline">
+                  <a
+                    href="https://ventionteams.com/privacy-policy"
+                    className="underline"
+                  >
                     Privacy Policy
                   </a>{" "}
                   and give my permission to process my personal data for the

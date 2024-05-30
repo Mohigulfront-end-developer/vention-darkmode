@@ -1,6 +1,13 @@
+import { ModeContext } from "./context/ModeContext";
+import { modeTypes } from "../types/modeTypes";
+import React from "react";
+
 const Aboutus = () => {
+  const { mode } = React.useContext(ModeContext);
+  const theme = mode === modeTypes.DARK_MODE ? true : false;
+
   return (
-    <div className="bg-[#EBEBED]">
+    <div className={` ${theme ? "bg-[#29292b] text-white " : "bg-[#EBEBED]"} `}>
       <div className="container mx-auto px-4 flex justify-center items-center">
         <div className="w-[15vw]"></div>
         <div className="border-b-2 border-l-2 border-gray-300 py-20 px-10">
@@ -20,6 +27,6 @@ const Aboutus = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Aboutus
+export default Aboutus;

@@ -1,9 +1,14 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
+import { ModeContext } from "./context/ModeContext";
+import { modeTypes } from "../types/modeTypes";
 
 const BrandsMarque = () => {
+  const { mode } = React.useContext(ModeContext);
+  const theme = mode === modeTypes.DARK_MODE ? true : false;
+  
   return (
-    <div className="bg-[#EBEBED]">
+    <div className={` ${theme ? "bg-[#29292b] text-white " : "bg-[#EBEBED]"} `}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-10 ml-[88px] border-l-2 border-gray-300 border-b-2">
           <Marquee className="">

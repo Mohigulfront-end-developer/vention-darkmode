@@ -1,9 +1,15 @@
 import { TfiWorld } from "react-icons/tfi";
 import logo from "../assets/sitelogo.svg";
+import { ModeContext } from "./context/ModeContext";
+import { modeTypes } from "../types/modeTypes";
+import React from "react";
 
 const Header = () => {
+  const { mode } = React.useContext(ModeContext);
+  const theme = mode === modeTypes.DARK_MODE ? true : false;
+  
   return (
-    <div className="w-full bg-[#EBEBED] border-b-2 border-gray-300">
+    <div className={`w-full border-b-2 border-gray-300 ${theme ? "bg-[#29292b] text-white " : "bg-[#EBEBED]"} `}>
       <header className="container mx-auto px-4 ">
         <div className="flex justify-between items-center">
           <img src={logo} alt="vention logosss" />
